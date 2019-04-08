@@ -13,4 +13,14 @@
         <property name="weight" value="33.14" />
     </bean>
     <bean id="DaBao" class="zoo.Creator" factory-method="createChosenPanda" />
+
+    <bean id="Marry" class="zoo.PandaWatcher">
+        <constructor-arg name="name" value="Marry" />
+        <constructor-arg name="panda" ref="LeLe"/>
+    </bean>
+
+    <bean id="Jack" class="zoo.PandaWatcher">
+        <property name="name" value="Jack"/>
+        <property name="panda" ref="HuanHuan"/>
+    </bean>
 </beans>
