@@ -7,8 +7,10 @@
         <constructor-arg name="name" value="HuanHuan" />
         <constructor-arg name="weight" value="22.2" />
     </bean>
+    <alias name="HuanHuan" alias="HuanThePanda" />
     <bean id="LeLe" class="zoo.Panda">
         <property name="name" value="LeLe" />
         <property name="weight" value="33.14" />
     </bean>
+    <bean id="DaBao" class="zoo.Creator" factory-method="createChosenPanda" />
 </beans>
