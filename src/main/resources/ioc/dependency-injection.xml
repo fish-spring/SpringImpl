@@ -3,10 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="Marry" class="zoo.PandaWatcher">
-        <constructor-arg name="name" value="Marry" />
-        <constructor-arg name="panda" ref="LeLe"/>
-    </bean>
+    <!--<bean id="Marry" class="zoo.PandaWatcher">-->
+        <!--<constructor-arg name="name" value="Marry" />-->
+        <!--<constructor-arg name="panda" ref="Le-Le"/>-->
+    <!--</bean>-->
 
     <bean id="Jack" class="zoo.PandaWatcher">
         <property name="name" value="Jack"/>

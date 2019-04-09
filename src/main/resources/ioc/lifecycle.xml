@@ -9,8 +9,8 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
     <context:annotation-config />
 
-    <bean name="clonedSheep" class="zoo.animal.ClonedSheep" p:name="clonedSheep"
-          init-method="createSheep" destroy-method="destroySheep"/>
-    <bean name="clonedMonkey" class="zoo.cloned.ClonedMonkey" p:name="clonedMonkey" />
-    <bean name="clonedPanda" class="zoo.cloned.ClonedPanda" p:name="clonedPanda"/>
+    <!--<bean name="clonedSheep" class="zoo.animal.cloned.ClonedSheep" p:name="clonedSheep"-->
+          <!--init-method="createSheep" destroy-method="destroySheep"/>-->
+    <!--<bean name="clonedMonkey" class="zoo.animal.cloned.ClonedMonkey" p:name="clonedMonkey" />-->
+    <bean name="clonedPanda" class="zoo.animal.cloned.ClonedPanda" p:name="clonedPanda"/>
 </beans>

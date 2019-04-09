@@ -3,13 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean name="WuZhiShan" class="zoo.Mountain" autowire="byName" />
-
-
-    <bean name="MonkeyKing" class="zoo.animal.Monkey">
-        <property name="name" value="MonkeyKing"/>
-    </bean>
-    <bean name="monkey" class="zoo.animal.Monkey">
-        <property name="name" value="MonkeyKing"/>
-    </bean>
+    <import resource="classpath:ioc/beans.xml"/>
+    <import resource="classpath:ioc/dependency-injection.xml"/>
+    <import resource="classpath:ioc/collections.xml"/>
+    <import resource="classpath:ioc/autowire.xml" />
+    <import resource="classpath:ioc/scope.xml" />
 </beans>

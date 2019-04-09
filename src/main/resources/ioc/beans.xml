@@ -9,7 +9,7 @@
         <constructor-arg name="weight" type="java.lang.Float" value="22.2" />
     </bean>
     <alias name="HuanHuan" alias="HuanThePanda" />
-    <bean id="LeLe" class="zoo.animal.Panda" >
+    <bean id="Le -Le" class="zoo.animal.Panda" >
         <property name="name" value="LeLe" />
         <property name="weight" value="33.14" />
     </bean>

@@ -1,4 +1,4 @@
-package zoo.animal;
+package zoo.animal.cloned;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

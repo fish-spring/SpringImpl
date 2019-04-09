@@ -9,6 +9,5 @@ public class PandaCleaner {
     private String name;
     private Panda panda;
     public void cleanPander(){
-
     }
 }

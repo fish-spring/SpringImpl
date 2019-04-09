@@ -2,6 +2,7 @@ package zoo;
 
 import lombok.Getter;
 import lombok.Setter;
+import zoo.animal.MachineCow;
 import zoo.animal.Panda;
 
 public class God {

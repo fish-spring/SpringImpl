@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import zoo.animal.Panda;
 
 import java.util.List;
 import java.util.Map;
@@ -21,9 +22,9 @@ public class RoomTest {
     public void getBeanWithConstructor(){
         Room room = context.getBean("room", Room.class);
         System.out.println(JSONObject.toJSONString(room));
-        Set<Mountain.Panda> pandaSet = room.getPandaSet();
-        Map<String, Mountain.Panda> pandaMap = room.getPandaMap();
-        List<Mountain.Panda> pandaList = room.getPandaList();
+        Set<Panda> pandaSet = room.getPandaSet();
+        Map<String, Panda> pandaMap = room.getPandaMap();
+        List<Panda> pandaList = room.getPandaList();
         System.out.println(JSONObject.toJSONString(pandaList));
         // [{"name":"P1","weight":22.2},{"name":"P1","weight":22.2}]
         System.out.println(JSONObject.toJSONString(pandaMap));
