@@ -3,24 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="HuanHuan" class="zoo.Panda">
-        <constructor-arg name="name" value="HuanHuan" />
-        <constructor-arg name="weight" value="22.2" />
-    </bean>
-    <alias name="HuanHuan" alias="HuanThePanda" />
-    <bean id="LeLe" class="zoo.Panda">
-        <property name="name" value="LeLe" />
-        <property name="weight" value="33.14" />
-    </bean>
-    <bean id="DaBao" class="zoo.Creator" factory-method="createChosenPanda" />
-
-    <bean id="Marry" class="zoo.PandaWatcher">
-        <constructor-arg name="name" value="Marry" />
-        <constructor-arg name="panda" ref="LeLe"/>
-    </bean>
-
-    <bean id="Jack" class="zoo.PandaWatcher">
-        <property name="name" value="Jack"/>
-        <property name="panda" ref="HuanHuan"/>
-    </bean>
+    <import resource="classpath:ioc/beans.xml"/>
+    <import resource="classpath:ioc/dependency-injection.xml"/>
+    <import resource="classpath:ioc/collections.xml"/>
+    <import resource="classpath:ioc/autowire.xml" />
+    <import resource="classpath:ioc/scope.xml" />
 </beans>

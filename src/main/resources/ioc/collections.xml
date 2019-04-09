@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="P1" class="zoo.animal.Panda">
+        <constructor-arg name="name" value="P1" />
+        <constructor-arg name="weight" type="java.lang.Float" value="22.2" />
+    </bean>
+    <bean id="P2" class="zoo.animal.Panda">
+        <constructor-arg name="name" value="P1" />
+        <constructor-arg name="weight" type="java.lang.Float" value="22.2" />
+    </bean>
+
+    <bean name="room" class="zoo.Room">
+        <property name="pandaList">
+            <list>
+                <ref bean="P1"/>
+                <ref bean="P2"/>
+            </list>
+        </property>
+        <property name="pandaMap">
+            <map>
+                <entry key="P1" value-ref="P1"/>
+                <entry key="P2" value-ref="P2"/>
+            </map>
+        </property>
+        <property name="pandaSet">
+            <set>
+                <ref bean="P1"/>
+                <null/>
+            </set>
+        </property>
+    </bean>
+</beans>

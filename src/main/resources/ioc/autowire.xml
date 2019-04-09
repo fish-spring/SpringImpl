@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="WuZhiShan" class="zoo.Mountain" autowire="byName">
+    </bean>
+    <bean name="MonkeyKing" class="zoo.animal.Monkey">
+        <property name="name" value="MonkeyKing"/>
+    </bean>
+    <bean name="monkey" class="zoo.animal.Monkey">
+        <property name="name" value="MonkeyKing"/>
+    </bean>
+</beans>

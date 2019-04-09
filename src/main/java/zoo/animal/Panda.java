@@ -1,4 +1,4 @@
-package zoo;
+package zoo.animal;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -3,38 +3,46 @@ package zoo;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import static org.junit.Assert.*;
-
 public class PandaTest {
-    private static ApplicationContext context;
+    private static BeanFactory factory;
     @BeforeClass
     public static void getContext(){
-        context = new ClassPathXmlApplicationContext("spring.xml");
+        factory = new ClassPathXmlApplicationContext("spring.xml");
     }
 
     @Test
     public void getBeanWithConstructor(){
-        Panda HuanHuan = (Panda) context.getBean("HuanHuan");
+        Mountain.Panda HuanHuan = (Mountain.Panda) factory.getBean("HuanHuan");
         System.out.println(JSONObject.toJSONString(HuanHuan));
         // {"name":"HuanHuan","weight":22.2}
-        Panda Huan = (Panda) context.getBean("HuanThePanda");
+        Mountain.Panda Huan = (Mountain.Panda) factory.getBean("HuanThePanda");
         System.out.println(Huan == HuanHuan);  // true
     }
 
     @Test
     public void getBeanWithProperties(){
-        Panda LeLe = (Panda) context.getBean("LeLe");
+        Mountain.Panda LeLe = (Mountain.Panda) factory.getBean("LeLe");
         System.out.println(JSONObject.toJSONString(LeLe));
         // {"name":"LeLe","weight":33.14}
     }
 
     @Test
     public void getBeanWithStaticFactory(){
-        Panda DaBao = (Panda) context.getBean("DaBao");
+        Mountain.Panda DaBao = (Mountain.Panda) factory.getBean("DaBao");
         System.out.println(JSONObject.toJSONString(DaBao));
         // {"name":"DaBao","weight":55.5}
+    }
+
+    @Test
+    public void scope(){
+        Mountain.Panda pandaSingleton1 = (Mountain.Panda) factory.getBean("pandaSingleton");
+        Mountain.Panda pandaSingleton2 = (Mountain.Panda) factory.getBean("pandaSingleton");
+        Mountain.Panda pandaPrototype1 = (Mountain.Panda) factory.getBean("pandaPrototype");
+        Mountain.Panda pandaPrototype2 = (Mountain.Panda) factory.getBean("pandaPrototype");
+        System.out.println(pandaSingleton1 == pandaSingleton2);  // true
+        System.out.println(pandaPrototype1 == pandaPrototype2);  // false
     }
 }
