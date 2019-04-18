@@ -9,14 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Dog {
+    @Value("${dogName}")
     private String name;
     private Integer age;
-
-    public void init(){
-        System.out.println("user init");
-    }
-    public void destroy(){
-        System.out.println("user destroy");
-    }
 }

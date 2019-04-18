@@ -4,18 +4,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import zoo.animal.Panda;
-
-import javax.inject.Inject;
+import org.springframework.context.ApplicationContext;
 
 @Getter @Setter
 @NoArgsConstructor
-public class PandaWatcherAnnotation {
+public class Sheep {
     private String name;
 
-//    @Autowired
-//    private Panda panda;
-
-    @Inject
-    private Panda panda;
+    @Autowired
+    private ApplicationContext context;
 }

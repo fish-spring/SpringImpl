@@ -12,7 +12,8 @@ public class SpringConfigTest {
     private static ApplicationContext context;
     @BeforeClass
     public static void init(){
-        context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        context = new AnnotationConfigApplicationContext(
+                SpringConfig.class);
     }
     @Test
     public void showBeans(){

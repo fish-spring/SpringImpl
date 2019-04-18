@@ -1,6 +1,8 @@
 package mall.entity;
 
+import com.alibaba.fastjson.JSONObject;
 import mall.config.SpringConfig;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -16,6 +18,15 @@ public class UserTest {
     }
     @Test
     public void lifecycle(){
+    }
+    @AfterClass
+    public static void destroy(){
 
+    }
+    @Test
+    public void properties(){
+        Dog dog = (Dog) context.getBean("dog");
+        System.out.println(JSONObject.toJSONString(dog));
+        // {"name":"Jon"}
     }
 }

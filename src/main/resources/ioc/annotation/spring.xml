@@ -11,6 +11,7 @@
     <context:annotation-config/>
 
     <bean name="panda" class="zoo.animal.Panda" p:name="panda"/>
+
     <bean name="pandaWatcher" class="zoo.annotation.PandaWatcherAnnotation">
         <property name="name" value="watcher"/>
     </bean>
@@ -24,4 +25,7 @@
           class="zoo.annotation.PandaWatcherSetterAnnotation">
         <property name="name" value="watcher"/>
     </bean>
+
+    <bean name="sheep" class="zoo.annotation.Sheep" p:name="sheep"/>
+    <bean name="fish" class="zoo.annotation.Fish" p:name="fish"/>
 </beans>

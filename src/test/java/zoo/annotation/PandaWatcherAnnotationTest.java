@@ -24,4 +24,10 @@ public class PandaWatcherAnnotationTest {
         System.out.println(JSONObject.toJSONString(pandaWatcher));
         // {"name":"watcher","panda":{"name":"panda"}}
     }
+    @Test
+    public void autowireNew(){
+        PandaWatcherAnnotation pandaWatcher =
+                new PandaWatcherAnnotation();
+        System.out.println(pandaWatcher.getPanda());
+    }
 }
