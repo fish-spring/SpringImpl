@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop.xsd">
+
+    <bean id="knight" class="com.github.fish56.spring.aop.worker.Knight">
+      <property name="name" value="Jon"/>
+    </bean>
+
+    <bean id="myAspect" class="com.github.fish56.spring.aop.MyAspect"/>
+
+    <aop:config>
+        <!-- 定义一些切点，这是处理我们业务逻辑的功能点，我们适当的时候需要对它们进行增强 -->
+        <aop:pointcut id="knightFight" expression=
+                "execution(public void com.github.fish56.spring.aop.worker.Knight.fight())"/>
+        <aop:pointcut id="knightSleep" expression=
+                "execution(public void com.github.fish56.spring.aop.worker.Knight.sleep())"/>
+        <aop:pointcut id="knightSleepAllNight" expression=
+                "execution(public void com.github.fish56.spring.aop.worker.Knight.sleepAllNight())"/>
+        <aop:pointcut id="knightOverWall" expression=
+                "execution(public void com.github.fish56.spring.aop.worker.Knight.overWall())"/>
+
+        <!-- 这是我们的增强点，这个对象的某些方法将在适当的时机被调用 -->
+        <aop:aspect ref="myAspect">
+            <aop:before method="logBefore" pointcut-ref="knightFight"/>
+            <aop:after-returning method="logAfter" pointcut-ref="knightFight"/>
+
+            <aop:around method="logAroundButStop" pointcut-ref="knightSleep"/>
+            <aop:around method="logAround" pointcut-ref="knightSleepAllNight"/>
+
+            <aop:after-throwing method="afterThrowing" pointcut-ref="knightOverWall"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

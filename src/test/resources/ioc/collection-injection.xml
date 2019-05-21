@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="panda1" class="com.github.fish56.spring.ioc.animal.Panda">
+        <constructor-arg name="name" value="panda1" />
+        <constructor-arg name="weight" type="java.lang.Float" value="22.2" />
+    </bean>
+    <bean id="panda2" class="com.github.fish56.spring.ioc.animal.Panda">
+        <constructor-arg name="name" value="panda1" />
+        <constructor-arg name="weight" type="java.lang.Float" value="22.2" />
+    </bean>
+
+    <!-- 为集合类型的属性注入值 -->
+
+    <bean name="room" class="com.github.fish56.spring.ioc.Room">
+        <property name="pandaList">
+            <list>
+                <ref bean="panda1"/>
+                <ref bean="panda2"/>
+            </list>
+        </property>
+        <property name="pandaMap">
+            <map>
+                <entry key="panda1" value-ref="panda1"/>
+                <entry key="panda2" value-ref="panda2"/>
+            </map>
+        </property>
+        <property name="pandaSet">
+            <set>
+                <ref bean="panda1"/>
+                <null/>
+            </set>
+        </property>
+    </bean>
+</beans>

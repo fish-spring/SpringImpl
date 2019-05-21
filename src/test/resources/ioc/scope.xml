@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="pandaSingleton" class="com.github.fish56.spring.ioc.animal.Panda">
+        <!-- 默认的是 scope="singleton" -->
+        <constructor-arg name="name" value="panda" />
+        <constructor-arg name="weight" value="33.3"/>
+    </bean>
+    <!-- 配置一个原型模式的bean，每次尝试获取是都会创建新的 -->
+    <bean name="pandaPrototype" class="com.github.fish56.spring.ioc.animal.Panda" scope="prototype">
+        <constructor-arg name="name" value="panda" />
+        <constructor-arg name="weight" value="33.3"/>
+    </bean>
+</beans>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="hanHan" class="com.github.fish56.spring.ioc.animal.Panda">
+        <constructor-arg name="name" value="HanHan" />
+        <constructor-arg name="weight" type="java.lang.Float" value="22.2" />
+    </bean>
+
+    <!-- 通过ref实现依赖注入 -->
+    <bean id="watcher1" class="com.github.fish56.spring.ioc.PandaWatcher">
+        <property name="name" value="Jack"/>
+        <property name="panda" ref="hanHan"/>
+    </bean>
+
+    <bean id="watcher2" class="com.github.fish56.spring.ioc.PandaWatcher">
+        <property name="name" value="Jack"/>
+        <property name="panda">
+            <bean class="com.github.fish56.spring.ioc.animal.Panda">
+                <property name="name" value="Jon's Panda" />
+                <property name="weight" value="33.14" />
+            </bean>
+        </property>
+    </bean>
+</beans>

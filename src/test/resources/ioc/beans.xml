@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 通过构造函数生成一个单例对象 -->
+    <bean id="hanHan" class="com.github.fish56.spring.ioc.animal.Panda">
+        <constructor-arg name="name" value="HanHan" />
+        <constructor-arg name="weight" type="java.lang.Float" value="22.2" />
+    </bean>
+    <!-- 给一个bean起一个别名 -->
+    <alias name="hanHan" alias="hanHanThePanda" />
+
+    <!-- 通过属性注入的方式配置bean -->
+    <bean id="leLe" class="com.github.fish56.spring.ioc.animal.Panda" >
+        <property name="name" value="LeLe" />
+        <property name="weight" value="33.14" />
+    </bean>
+
+    <!-- 通过静态工厂方法创建bean -->
+    <bean id="daBao" class="com.github.fish56.spring.ioc.Creator" factory-method="createChosenPanda" />
+
+    <!-- 通过另一个bean的方法创建bean -->
+    <bean id="god" class="com.github.fish56.spring.ioc.God"/>
+    <bean id="daBao2" factory-bean="god" factory-method="createChosenPanda" />
+
+    <!-- 通过p命名空间注入属性 -->
+    <bean name="leLe2" class="com.github.fish56.spring.ioc.animal.Panda" p:name="LeLe2" p:weight="33.14"/>
+</beans>
